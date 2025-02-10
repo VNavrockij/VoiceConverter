@@ -47,12 +47,14 @@ struct MainView: View {
             Text("Translator")
                 .font(.custom(Constants.konkhmerFont, size: 32))
                 .padding(.bottom, 32)
+                .foregroundColor(.black)
 
             HStack(spacing: 60) {
                 Text(viewModel.human)
                     .textCase(.uppercase)
                     .font(.custom(Constants.konkhmerFont, size: 16))
                     .frame(maxWidth: .infinity)
+                    .foregroundColor(.black)
 
                 Button {
                     viewModel.swapHumanAndPet()
@@ -67,6 +69,7 @@ struct MainView: View {
                     .textCase(.uppercase)
                     .font(.custom(Constants.konkhmerFont, size: 16))
                     .frame(maxWidth: .infinity)
+                    .foregroundColor(.black)
             }
             .frame(width: 300)
 //            .background(.red)

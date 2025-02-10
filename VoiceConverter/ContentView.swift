@@ -8,26 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var viewModel = AppViewModel()
+
     var body: some View {
-        ZStack {
-            backgroundGradient
-
-            VStack {
-                Text("Hello, Eugen")
-                    .font(.custom("KonkhmerSleokchherRegular", size: 30))
-            }
-        }
-
+        MainView()
+            .environmentObject(viewModel)
     }
-}
-
-private var backgroundGradient: some View {
-    LinearGradient(gradient: Gradient(
-        colors: [Color.init(hex: Constants.Colors.topMainColor.rawValue),
-                 Color.init(hex: Constants.Colors.bottomMainColor.rawValue)]),
-                   startPoint: .top,
-                   endPoint: .bottom)
-        .ignoresSafeArea()
 }
 
 #Preview {

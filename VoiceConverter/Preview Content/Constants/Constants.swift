@@ -6,6 +6,8 @@
 //
 
 struct Constants {
+    static let konkhmerFont: String = "KonkhmerSleokchherRegular"
+
     enum Colors: String {
         case topMainColor = "#f2f5f6"
         case bottomMainColor = "#c9ffe0"
