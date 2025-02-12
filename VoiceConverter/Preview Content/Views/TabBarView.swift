@@ -7,7 +7,11 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct TabBarView: View {
+    @State private var isSettingsPresented = false
+
     var body: some View {
         HStack {
             Button {
@@ -23,9 +27,11 @@ struct TabBarView: View {
                         .foregroundColor(.black)
                 }
             }
+
             Spacer()
+
             Button {
-                print("Settings tapped")
+                isSettingsPresented.toggle()
             } label: {
                 VStack {
                     Image(systemName: "gearshape")
@@ -37,6 +43,9 @@ struct TabBarView: View {
                         .foregroundColor(.black)
                 }
             }
+            .popover(isPresented: $isSettingsPresented) {
+                SettingsView()
+            }
         }
         .frame(width: 140)
         .padding()
@@ -44,3 +53,4 @@ struct TabBarView: View {
         .cornerRadius(12)
     }
 }
+

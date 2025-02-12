@@ -11,6 +11,8 @@ import AVFoundation
 struct SpeakView: View {
     @EnvironmentObject var viewModel: AppViewModel
     @StateObject private var audioRecorder = AudioRecorder()
+    @State private var showReactionView = false
+    @State private var isLoading = false
 
     var body: some View {
         HStack {
@@ -18,8 +20,11 @@ struct SpeakView: View {
                 if audioRecorder.permissionStatus == .granted {
                     if audioRecorder.isRecording {
                         audioRecorder.stopRecording()
+                        isLoading = true
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            isLoading = false
                             viewModel.showPetReaction()
+                            showReactionView = true
                         }
                     } else {
                         audioRecorder.startRecording()
@@ -29,11 +34,19 @@ struct SpeakView: View {
                 }
             } label: {
                 VStack {
-                    Image(systemName: audioRecorder.isRecording ? "mic.fill" : "mic")
-                        .resizable()
-                        .foregroundColor(.black)
-                        .frame(width: 50, height: 70)
-                        .padding(.bottom, 24)
+                    if isLoading {
+                        ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle())
+                            .frame(width: 50, height: 70)
+                            .padding(.bottom, 24)
+                    } else {
+                        Image(systemName: audioRecorder.isRecording ? "mic.fill" : "mic")
+                            .resizable()
+                            .foregroundColor(.black)
+                            .frame(width: 50, height: 70)
+                            .padding(.bottom, 24)
+                    }
+
                     Text(audioRecorder.isRecording ? "Stop speak" : "Start speak")
                         .font(.custom(Constants.konkhmerFont, size: 16))
                         .foregroundColor(.black)
@@ -85,8 +98,13 @@ struct SpeakView: View {
                 audioRecorder.requestPermission()
             }
         }
+        .sheet(isPresented: $showReactionView) {
+            PetReactionView(isPresented: $showReactionView)
+                .environmentObject(viewModel)
+        }
     }
 }
+
 
 
 #Preview {

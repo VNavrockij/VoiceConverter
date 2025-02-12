@@ -12,7 +12,7 @@ struct MainView: View {
 
     var body: some View {
         ZStack {
-            BackgroundGradient
+            BGGradientView()
 
             VStack {
                 HeaderView
@@ -31,15 +31,6 @@ struct MainView: View {
 
 
         }
-    }
-
-    private var BackgroundGradient: some View {
-        LinearGradient(gradient: Gradient(
-            colors: [Color.init(hex: Constants.Colors.topMainColor.rawValue),
-                     Color.init(hex: Constants.Colors.bottomMainColor.rawValue)]),
-                       startPoint: .top,
-                       endPoint: .bottom)
-        .ignoresSafeArea()
     }
 
     private var HeaderView: some View {
@@ -78,7 +69,6 @@ struct MainView: View {
         .padding()
 //        .background(.white)
     }
-
 }
 
 #Preview {
