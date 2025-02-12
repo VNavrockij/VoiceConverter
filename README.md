@@ -26,4 +26,3 @@ Vitalii Navrotskij
 ![Главный экран](screens/1.png)
 ![Настройки](screens/4.png)
 ![Реакция питомца](screens/3.png)
-![Дополнительные функции](screens/2.png)
