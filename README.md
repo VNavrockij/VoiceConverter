@@ -23,7 +23,7 @@ Realm (по желанию) — хранение истории взаимоде
 Vitalii Navrotskij
 📧 Email: vitalik.nav@gmail.com
 
-![(screens/1.png)
-![(screens/2.png)
-![(screens/3.png)
-![(screens/4.png)
+![Главный экран](screens/1.png)
+![Настройки](screens/4.png)
+![Реакция питомца](screens/3.png)
+![Дополнительные функции](screens/2.png)
