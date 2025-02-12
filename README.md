@@ -22,3 +22,8 @@ Realm (по желанию) — хранение истории взаимоде
 👨‍💻 Автор
 Vitalii Navrotskij
 📧 Email: vitalik.nav@gmail.com
+
+![(screens/1.png)
+![(screens/2.png)
+![(screens/3.png)
+![(screens/4.png)
